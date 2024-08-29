@@ -62,7 +62,7 @@ const Docs = () => {
     const listDocs = () => {
         setLoading(true);
         gapi.client.drive.files.list({
-            'pageSize': 10,
+            'pageSize': 500,
             'fields': "nextPageToken, files(id, name, mimeType, owners, webViewLink, createdTime, modifiedTime, description)"
         }).then((response) => {
             setLoading(false);

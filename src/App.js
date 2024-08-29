@@ -1,5 +1,5 @@
-import React from 'react';
-import { Navigate, Route, Router, Routes, useParams, useSearchParams } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Route, Router, Routes, useParams, useSearchParams } from 'react-router-dom';
 import Layout from './layout';
 import Gmail from './comp/Gmail';
 import Docs from './comp/Docs';
@@ -10,28 +10,60 @@ import CalendarComponent from './comp/GoogleCalender';
 import Caiif from './comp/Caiif';
 import Campaigns from './comp/Campaigns';
 import Deals from './comp/Deals';
-import Admin from './comp/Admin/Admin';
+import Header from './website/Home';
+import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'animate.css/animate.min.css';
+// import 'lineicons/dist/LineIcons.css'; // Adjusted import path
+import 'bootstrap/dist/js/bootstrap.bundle.min.js'; // Import Bootstrap JS here
+import SignUpForm from './website/SignUp';
+import Login from './website/Login';
+import ProtectedRoute from "./ProtectedRoute";
+import { UserProvider } from "./website/UserContext";
+import Refund from './website/Refund'
+import Terms from './website/Terms';
+import Privacy from './website/Privacy'
+
 
 const App = () => {
-  const role = "ADMIN";
+
+  const [token, setToken] = useState(localStorage.getItem("token"));
+
+  useEffect(() => {
+    if (!token) {
+      setToken(localStorage.getItem("token"));
+    }
+  }, [token]);
+
   return (
     <div>
-      <Routes>
-        <Route path='/' element={<Layout />}>
-          <Route path='/' element={<Gmail />} />
-          <Route path='/:token' element={<Gmail />} />
-          <Route path='/deals' element={<Deals />} />
-          <Route path='/docs' element={<Docs />} />
-          <Route path='/sstrack' element={<SSTrack />} />
-          <Route path='/verdebooks' element={<Verdebooks />} />
-          <Route path='/click HR' element={<ClickHR />} />
-          <Route path='/calender' element={<CalendarComponent />} />
-          <Route path='/caiif' element={<Caiif />} />
-          <Route path='/campaigns' element={<Campaigns />} />
-          <Route path='/admin' element={role === "ADMIN" ? <Admin /> : <Navigate to="/deals" />} />
-          <Route path='*' element={<Navigate replace={true} to="/deals" />} />
-        </Route>
-      </Routes>
+      <>
+        {/* <UserProvider> */}
+        <Routes>
+          {/* <Route element={<ProtectedRoute />}> */}
+          <Route path='/' element={<Layout />} >
+            <Route path='/' element={<Gmail />} />
+            <Route path='/:token' element={<Gmail />} />
+            <Route path='/deals' element={<Deals />} />
+            <Route path='/docs' element={<Docs />} />
+            <Route path='/sstrack' element={<SSTrack />} />
+            <Route path='/verdebooks' element={<Verdebooks />} />
+            <Route path='/clickHr' element={<ClickHR />} />
+            <Route path='/calender' element={<CalendarComponent />} />
+            <Route path='/caiif' element={<Caiif />} />
+            <Route path='/campaigns' element={<Campaigns />} />
+            {/* </Route> */}
+          </Route>
+          <Route path='/header' element={<Header />} />
+          <Route path='/refund' element={<Refund />} />
+          <Route path='privacy-policy' element={<Privacy />} />
+          <Route path='/terms' element={<Terms />} />
+          <Route path='/signup' element={<SignUpForm />} />
+          <Route path='/login' element={<Login />} />
+
+        </Routes>
+        {/* </UserProvider> */}
+
+      </>
     </div>
   );
 }
