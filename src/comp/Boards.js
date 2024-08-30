@@ -232,7 +232,7 @@ const Boards = () => {
             }
         });
         setBoards(createdDeal);
-        localStorage.setItem('boards', JSON.stringify(createdDeal));
+        // localStorage.setItem('boards', JSON.stringify(createdDeal));
     };
 
     const moveDeal = (fromBoardIndex, fromIndex, toBoardIndex, toIndex) => {
