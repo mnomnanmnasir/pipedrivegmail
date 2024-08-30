@@ -4210,7 +4210,7 @@ only screen and (min-width: 576px) and (max-width: 767px) {
 /* ===== Footer CSS ===== */
 .ud-footer {
   background: var(--heading-color);
-  padding-top: 100px;
+  padding-top: 50px;
   position: relative;
   z-index: 1;
   overflow: hidden;
@@ -4392,8 +4392,8 @@ only screen and (min-width: 576px) and (max-width: 767px) {
 
 /* ====== Banner CSS ======= */
 .ud-page-banner {
-  padding-top: 130px;
-  padding-bottom: 80px;
+  padding-top: 50px;
+  padding-bottom: -16pxpx;
   background: var(--primary-color);
   /* background-color: ('./as'); */
   background-image: url("./assets/images/banner/banner-bg.svg");

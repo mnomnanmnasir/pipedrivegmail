@@ -31,7 +31,7 @@ const Footer = () => {
                             <div className="col-xl-3 col-lg-4 col-md-6">
                                 <div className="ud-widget">
                                     <a href="/header" className="ud-footer-logo" style={{ textDecoration: 'none', color: 'black' }}>
-                                        <h4 style={{ color: 'aliceblue', textDecoration: 'none' }}>
+                                        <h4 style={{ color: 'aliceblue', textDecoration: 'none', fontSize: '1.4rem' }}>
                                             INFINITI SUITE
                                         </h4>
                                     </a>
@@ -135,7 +135,7 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className="ud-footer-bottom">
-                    <div className="container">
+                    <div className="container" style={{padding: '20px'}}>
                         <div className="row">
                             <div className="col-md-8">
                                 <ul className="ud-footer-bottom-left">
@@ -168,4 +168,4 @@ const Footer = () => {
 
 
 
-export default Footer
+export default Footer   

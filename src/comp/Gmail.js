@@ -256,7 +256,7 @@ function Gmail() {
         gapi.client.gmail.users.messages.list({
             'userId': 'me',
             'labelIds': 'INBOX',
-            'maxResults': 10
+            'maxResults': 500
         }).then(function (response) {
             const messages = response.result.messages;
             getMessagesDetail(messages);
@@ -627,7 +627,7 @@ function Gmail() {
                                     <span className="material-icons"> account_circle </span>
                                 </div>
                             </div> */}
-                            <div className="main__body">
+                            <div className="main__body" style={{marginTop: '-4%'}}>
                                 <div className="sidebar">
                                     <button className="sidebar__compose" onClick={() => setOpenCompose(true)}>
                                         <span className="material-icons"> add </span>Compose

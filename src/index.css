@@ -556,9 +556,10 @@ input {
 }
 
 .emailRow__title {
-  font-size: 13px;
+  font-size: 0.9rem;
   flex: 0.3;
   margin-left: 10px;
+  padding-top: 5px
 }
 
 .emailRow__time {
